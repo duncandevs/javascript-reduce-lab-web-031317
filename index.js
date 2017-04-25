@@ -16,3 +16,18 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+let totalBatteries = batteryBatches.reduce( (acc,val) => {
+  return acc + val
+},0)
+
+//return a hash with the count of number of words as keys and the total lines equal to the count as values
+let wordCountMap = monologueLines.reduce((hash,sen)=>{
+  var count = sen.split(" ").length.toString();
+  if(hash.hasOwnProperty(count)){
+    hash[count] += 1;
+    return hash
+  } else {
+    hash[count] = 1;
+    return hash
+  }
+}, {});
